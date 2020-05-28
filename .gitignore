@@ -1,0 +1,14 @@
+MyCompany.MyProject.Service/.vs/MyCompany.MyProject.Service/v16/
+src/MyCompany.MyProject.Models/obj/
+src/MyCompany.MyProject.Models/bin/
+src/MyCompany.MyProject.Logic/obj/
+src/MyCompany.MyProject.Logic/bin/
+src/MyCompany.MyProject.Extensions/obj/
+src/MyCompany.MyProject.Extensions/bin/
+src/MyCompany.MyProject.DataRepos/obj/
+src/MyCompany.MyProject.DataRepos/bin/
+src/MyCompany.MyProject.Database/obj/
+src/MyCompany.MyProject.Database/bin/
+MyCompany.MyProject.Service/obj/
+MyCompany.MyProject.Service/bin/
+MyCompany.MyProject.Service/.vs/
