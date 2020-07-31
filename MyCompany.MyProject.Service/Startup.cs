@@ -9,6 +9,8 @@ using MyCompany.MyProject.DataRepos;
 using MyCompany.MyProject.DataRepos.Interface;
 using MyCompany.MyProject.Logic;
 using MyCompany.MyProject.Logic.Interface;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MyCompany.MyProject.Service
 {
@@ -52,6 +54,23 @@ namespace MyCompany.MyProject.Service
             {
                 endpoints.MapControllers();
             });
+        }
+    }
+
+    public static class ServiceCollectionExtensions
+    {
+        public static void ConfigurationSettings<TConfig>(this IServiceCollection services, IConfiguration configuration) where TConfig : class, new()
+        {
+            var config = new TConfig();
+            configuration.Bind(config);
+            services.AddSingleton(config);
+        }
+        public static void InputErrorMessages(this IServiceCollection services, IConfiguration configuration)
+        {
+            var rawdata = new Dictionary<string, string>();
+            configuration.Bind(rawdata);
+            var appdata = rawdata.ToDictionary(x => !int.TryParse(x.Key, out int seq) ? 0 : seq, x => x.Value);
+            services.AddSingleton(appdata);
         }
     }
 }
